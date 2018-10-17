@@ -1,6 +1,6 @@
 # A straightforward Vue component to filter and sort tables
 
-[![Latest Version on NPM](https://img.shields.io/npm/v/xscalable-vue-table-component.svg?style=flat-square)](https://www.npmjs.com/package/xscalable-vue-table-component)
+[![Latest Version on NPM](https://img.shields.io/npm/v/vue-tabl.svg?style=flat-square)](https://www.npmjs.com/package/vue-tabl)
 [![Software License](https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square)](LICENSE.md)
 
 This repo contains a Vue component that can render a filterable and sortable table. It aims to be very lightweight and easy to use. It has support for [retrieving data asynchronously and pagination](#retrieving-data-asynchronously).
@@ -35,14 +35,14 @@ A cool feature is that the table caches the used filter and sorting for 15 minut
 
 ## Demo
 
-Want to see the component in action? No problem. [Here's a demo](http://vue-table-component.spatie.be).
+Want to see the component in action? No problem. [Here's a demo](https://fazendadosoftware.github.io/vue-table-component/).
 
 ## Installation
 
 You can install the package via npm:
 
 ```bash
-npm install xscalable-vue-table-component --save
+npm install vue-tabl --save
 ```
 
 Next, you must register the component. The most common use case is to do that globally.
@@ -50,7 +50,7 @@ Next, you must register the component. The most common use case is to do that gl
 ```js
 //in your app.js or similar file
 import Vue from 'vue';
-import { TableComponent, TableColumn } from 'xscalable-vue-table-component';
+import { TableComponent, TableColumn } from 'vue-tabl';
 
 Vue.component('table-component', TableComponent);
 Vue.component('table-column', TableColumn);
@@ -59,14 +59,14 @@ Vue.component('table-column', TableColumn);
 Alternatively you can do this to register the components:
 
 ```js
-import TableComponent from 'xscalable-vue-table-component';
+import TableComponent from 'vue-tabl';
 
 Vue.use(TableComponent);
 ```
 
 ## Browser Support
 
-`xscalable-vue-table-component` has the same browser support as Vue (see https://github.com/vuejs/vue). However, you might need to polyfill the [`Array.prototype.find`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/find#Polyfill) method for IE support.
+`vue-tabl` has the same browser support as Vue (see https://github.com/vuejs/vue). However, you might need to polyfill the [`Array.prototype.find`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/find#Polyfill) method for IE support.
 
 ## Usage
 
@@ -139,7 +139,7 @@ If you want to modify the built in text or classes you can pass settings globall
 You can use the [CSS](docs/table-component.css) from the docs as a starting point for your own styling.
 
 ```js
-import TableComponent from 'vue-table-component';
+import TableComponent from 'vue-tabl';
 
 TableComponent.settings({
     tableClass: '',
@@ -154,7 +154,7 @@ You can also provide the custom settings on Vue plugin install hook:
 
 ```js
 import Vue from 'vue';
-import TableComponent from 'vue-table-component';
+import TableComponent from 'vue-tabl';
 
 Vue.use(TableComponent, {
     tableClass: '',
