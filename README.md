@@ -109,6 +109,7 @@ You can pass these props to `table-component`:
 - `filter-placeholder`: the text used as a placeholder in the filter field
 - `filter-input-class`: additional classes that you will be applied to the filter text input
 - `filter-no-results`: the text displayed when the filtering returns no results
+- `no-expiring-storage`: (Boolean, default: false) disables the usage of localStorage for saving state
 
 For each `table-column` a column will be rendered. It can have these props:
 

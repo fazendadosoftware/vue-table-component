@@ -82,7 +82,8 @@ export default {
     filterInputClass: { default: () => settings.filterInputClass },
     filterPlaceholder: { default: () => settings.filterPlaceholder },
     filterNoResults: { default: () => settings.filterNoResults },
-    sortingExternal: { default: false, type: Boolean }
+    sortingExternal: { default: false, type: Boolean },
+    noExpiringStorage: { default: false, type: Boolean }
   },
 
   data: () => ({
