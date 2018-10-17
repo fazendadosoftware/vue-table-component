@@ -294,6 +294,7 @@ export default {
     },
 
     saveState() {
+      if (!this.noExpiringStorage) return
       expiringStorage.set(
         this.storageKey,
         pick(this.$data, ["filter", "sort"]),
@@ -302,6 +303,7 @@ export default {
     },
 
     restoreState() {
+      if (!this.noExpiringStorage) return
       const previousState = expiringStorage.get(this.storageKey);
 
       if (previousState === null) {
