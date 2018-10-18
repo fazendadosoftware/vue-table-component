@@ -1,6 +1,5 @@
 <template>
     <div class="table-component">
-      {{showRowTooltips}}
       <div v-if="showFilter && filterableColumnExists" class="table-component__filter">
         <input :class="fullFilterInputClass" type="text" v-model="filter" :placeholder="filterPlaceholder">
         <a v-if="filter" @click="filter = ''" class="table-component__filter__clear">×</a>
@@ -27,7 +26,7 @@
             :key="row.vueTableComponentInternalRowId"
             :row="row"
             :columns="columns"
-            :show-cell-tooltips="showCellTooltips"
+            :cell-tooltips="cellTooltips"
             @rowClick="emitRowClick"
             @rowVisible="emitRowVisible"/>
           </tbody>
@@ -90,7 +89,7 @@ export default {
     filterNoResults: { default: () => settings.filterNoResults },
     sortingExternal: { default: false, type: Boolean },
     noExpiringStorage: { default: false, type: Boolean },
-    showCellTooltips: { default: false, type: Boolean }
+    cellTooltips: [String, Boolean, Function]
   },
 
   data: () => ({

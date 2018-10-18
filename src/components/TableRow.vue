@@ -2,16 +2,7 @@
     <tr
       @click="$emit('rowClick', row)"
       v-observe-visibility="(isVisible, entry) => visibilityChangedHandler(isVisible, entry, row)">
-      <!--
-      <td
-        v-for="column in visibleColumns"
-        :key="column.show"
-        :class="column.cellClass"
-        :title="showCellTooltips ? column.label : undefined">
-        {{cellValue(row, column)}}
-      </td>
-      -->
-      <table-cell v-for="column in visibleColumns" :row="row" :column="column" :key="column.id" :show-cell-tooltips="showCellTooltips"/>
+      <table-cell v-for="column in visibleColumns" :row="row" :column="column" :key="column.id" :show-cell-tooltips="cellTooltips"/>
     </tr>
 </template>
 
@@ -24,7 +15,7 @@
 
 
     export default {
-        props: ['columns', 'row', 'showCellTooltips'],
+        props: ['columns', 'row', 'cellTooltips'],
 
         components: {
             TableCell,
