@@ -1,5 +1,6 @@
 <template>
     <div class="table-component">
+      {{showRowTooltips}}
       <div v-if="showFilter && filterableColumnExists" class="table-component__filter">
         <input :class="fullFilterInputClass" type="text" v-model="filter" :placeholder="filterPlaceholder">
         <a v-if="filter" @click="filter = ''" class="table-component__filter__clear">×</a>
@@ -26,6 +27,7 @@
             :key="row.vueTableComponentInternalRowId"
             :row="row"
             :columns="columns"
+            :show-cell-tooltips="showCellTooltips"
             @rowClick="emitRowClick"
             @rowVisible="emitRowVisible"/>
           </tbody>
@@ -48,6 +50,8 @@
 </template>
 
 <script>
+import Vue from 'vue';
+import VueTippy from 'vue-tippy';
 import Column from "../classes/Column";
 import expiringStorage from "../expiring-storage";
 import Row from "../classes/Row";
@@ -56,6 +60,8 @@ import TableRow from "./TableRow";
 import settings from "../settings";
 import Pagination from "./Pagination";
 import { classList, pick } from "../helpers";
+
+Vue.use(VueTippy);
 
 export default {
   components: {
@@ -83,7 +89,8 @@ export default {
     filterPlaceholder: { default: () => settings.filterPlaceholder },
     filterNoResults: { default: () => settings.filterNoResults },
     sortingExternal: { default: false, type: Boolean },
-    noExpiringStorage: { default: false, type: Boolean }
+    noExpiringStorage: { default: false, type: Boolean },
+    showCellTooltips: { default: false, type: Boolean }
   },
 
   data: () => ({

@@ -23,6 +23,9 @@
     "jest-vue-preprocessor": "^0.2.0",
     "moment": "^2.18.1",
     "simulant": "^0.2.2",
+    "style-loader": "^0.23.1",
+    "stylus": "^0.54.5",
+    "stylus-loader": "^3.0.2",
     "vue": "^2.5.0",
     "vue-loader": "^12.0.3",
     "vue-template-compiler": "^2.3.0",
@@ -75,5 +78,8 @@
     "start": "webpack-dev-server --config docs/webpack.config.js",
     "test": "jest"
   },
-  "version": "1.0.2"
+  "version": "1.0.3",
+  "dependencies": {
+    "vue-tippy": "^2.0.19"
+  }
 }

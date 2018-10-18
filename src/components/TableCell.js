@@ -1,13 +1,16 @@
 export default {
     functional: true,
 
-    props: ['column', 'row'],
+    props: ['column', 'row', 'showCellTooltips'],
 
     render(createElement, { props }) {
         const data = {};
+        data.attrs = {
+            title: props.showCellTooltips ? props.column.label : undefined,
+        };
 
         if (props.column.cellClass) {
-            data.class = props.column.cellClass;
+            data.class = `${data.class} ${props.column.cellClass}`;
         }
 
         if (props.column.template) {
