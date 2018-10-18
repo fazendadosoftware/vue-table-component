@@ -6,23 +6,24 @@ function throwValueError(value) {
 
 export default {
     bind(el, { value }, vnode) {
+        if (typeof IntersectionObserver === 'undefined') require('intersection-observer')
         if (typeof IntersectionObserver === 'undefined') {
+            require('intersection-observer')
             // eslint-disable-next-line
             console.warn('[vue-observe-visibility] IntersectionObserver API is not available in your browser. Please install this polyfill: https://github.com/WICG/IntersectionObserver/tree/gh-pages/polyfill')
-        } else {
-            throwValueError(value);
-            el._vue_visibilityCallback = value;
-            const observer = el._vue_intersectionObserver = new IntersectionObserver(entries => {
-                var entry = entries[0];
-                if (el._vue_visibilityCallback) {
-                    el._vue_visibilityCallback.call(null, entry.intersectionRatio > 0, entry);
-                }
-            });
-            // Wait for the element to be in document
-            vnode.context.$nextTick(() => {
-                observer.observe(el);
-            });
         }
+        throwValueError(value);
+        el._vue_visibilityCallback = value;
+        const observer = el._vue_intersectionObserver = new IntersectionObserver(entries => {
+            var entry = entries[0];
+            if (el._vue_visibilityCallback) {
+                el._vue_visibilityCallback.call(null, entry.intersectionRatio > 0, entry);
+            }
+        });
+        // Wait for the element to be in document
+        vnode.context.$nextTick(() => {
+            observer.observe(el);
+        });
     },
     update(el, { value }) {
         throwValueError(value);

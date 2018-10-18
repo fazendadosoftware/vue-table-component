@@ -16,3 +16,6 @@ All notable changes to `xscalable-vue-table-component` will be documented in thi
 
 ## 1.0.4- 2018-10-18
   - `show-cell-tooltips` prop of table-component may be Boolean, String or Function
+
+## 1.0.5- 2018-10-18
+  - Added IntersectionObserver polyfill for IE
